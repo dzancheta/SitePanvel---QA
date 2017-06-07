@@ -1,0 +1,168 @@
+#language: pt 
+
+Funcionalidade: Cadastro de Cliente
+    Como desenvolvedor
+    Eu quero estar poder cadastrar um cliente novo
+    
+    Contexto:
+        Dado   Eu abro o site "/login"
+        E      Eu tenho um fullscreen
+
+        Então  Eu pauso por 2000ms
+        Quando Eu preencho "eroque" no inputfield "#inputUsuario"
+        Quando Eu preencho "teste123" no inputfield "#inputSenha"
+        Quando Eu clico no botao "#botaoEntrar"
+        E      Eu pauso por 4000ms
+        Então  Eu espero que a URL seja "/cesta"
+
+
+    Cenário: Teste se o modal criação de cliente está habilitado
+        Quando Eu clico no botao "body > div.ng-scope > div > div > main > main > section.cesta-header > div.menu-trigger"
+        E      Eu pauso por 500ms
+        Quando Eu clico no botao "#botaoCliente"
+        E      Eu pauso por 500ms
+        Então  Eu espero que o elemento "#botaoSalvarCliente" se torne visível
+        E      Eu clico no botao "#form-cadastro-cliente-modal > div > div > ng-transclude > div > modal-header > div > ng-transclude > i"
+        E      Eu pauso por 500ms
+        Então  Eu clico no botao "#linkLogout"
+        E      Eu pauso por 500ms
+    
+
+       Esquema do Cenario: Validando o cadastrando um cliente com sucesso
+        
+            Quando Eu clico no botao "body > div.ng-scope > div > div > main > main > section.cesta-header > div.menu-trigger"
+            E      Eu pauso por 500ms
+            Então  Eu clico no botao "#botaoCliente"
+            E      Eu pauso por 500ms
+            Então  Eu espero que o elemento "#botaoSalvarCliente" se torne visível
+        
+            Quando Eu preencho <nome> no inputfield "#inputNome"
+            E      Eu pauso por 500ms
+
+            E      Eu preencho <cpf> no inputfield "#inputCpf"
+            E      Eu pauso por 500ms
+
+            E      Eu clico no botao "#inputRg"
+            E      Eu pauso por 500ms
+           
+            Quando Eu preencho <rg> no inputfield "#inputRg"
+            E      Eu pauso por 500ms
+
+            Quando Eu preencho <data de nascimento> no inputfield "#inputDataNascimento"
+           
+            E      Eu pauso por 500ms
+            Quando Eu seleciono a 1ª opção do elemento "#comboSexo"
+
+            E      Eu pauso por 500ms
+            Quando Eu preencho <email> no inputfield "#inputTagEmail > div > div > input"
+           
+            Quando Eu preencho <telefone fixo> no inputfield "#inputTagTelFixo > div > div > input"
+            E      Eu pressiono "Enter"
+            E      Eu pauso por 5000ms
+            Quando Eu preencho <telefone fixo1> no inputfield "#inputTagTelFixo > div > div > input"
+            E      Eu pressiono "Enter"
+            E      Eu pressiono "Enter"
+            E      Eu pauso por 5000ms
+          
+            Quando Eu preencho <telefone movel> no inputfield "#inputTagTelMovel > div > div > input"
+            
+            Dado  the checkbox "#checkboxFidelidade" is not checked
+            Então  Eu clico no elemento "#form-cadastro-cliente-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.form-cliente > form > div:nth-child(6) > div > label"
+    
+            Quando Eu preencho <cep> no inputfield "#inputCep"
+            Então  Eu clico no elemento "#botaoPesquisarCep"
+            E      Eu pauso por 500ms
+            E      the element "#inputBairro" is not enabled
+            E      the element "#inputCidade" is not enabled
+            E      the element "#inputUf" is not enabled
+            E      Eu pressiono "Enter"
+            Então  Eu pressiono "ArrowDown"
+            E      Eu pressiono "Enter"
+
+            Quando Eu preencho <numero> no inputfield "#inputNumero"
+            Quando Eu preencho <complemento> no inputfield "#inputComplemento"
+            Quando Eu preencho <referencia> no inputfield "#textAreaRef"
+
+
+            Então  Eu pauso por 1000ms
+            E      Eu clico no elemento "#form-cadastro-cliente-modal > div > div > ng-transclude > div > modal-header > div > ng-transclude > i"
+            E      Eu clico no elemento "body > div > div > div > main > main > section.cesta-header > div.menu-trigger"
+            E      Eu clico no elemento "#linkLogout"
+          #  Então  Eu clico no elemento "#botaoSalvarCliente"
+          #  E      Eu pauso por 10000ms
+          #  Então  Eu espero que o elemento "#form-cadastro-cliente-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.mensagem-container.ng-scope > div > p:nth-child(2)" contenha "Criando um novo cadastro..."
+
+        Exemplos:
+        |   nome   |   cpf         |      rg      | data de nascimento |         email          | telefone fixo | telefone movel |    cep     |   numero    |  complemento    |   referencia   | telefone fixo1  |
+        | "rafael" | "03186919061" | "1093621058" |     "01071993"     | "rafinha047@gmail.com" | "51999630386" | "51999630386"  | "90450000" |    "2141"   |   "comercio"    |    "esquina"   |   "5134811888"  |
+
+   
+   
+      Esquema do Cenario: Validando o cadastrando um cliente com cpf invalido
+        
+            Quando Eu clico no botao "body > div.ng-scope > div > div > main > main > section.cesta-header > div.menu-trigger"
+            E      Eu pauso por 500ms
+            Então  Eu clico no botao "#botaoCliente"
+            E      Eu pauso por 500ms
+            Então  Eu espero que o elemento "#botaoSalvarCliente" se torne visível
+        
+            Quando Eu preencho <nome> no inputfield "#inputNome"
+            E      Eu pauso por 500ms
+
+            E     Eu preencho <cpf> no inputfield "#inputCpf"
+            E      Eu pauso por 500ms
+            
+            E      Eu clico no botao "#inputRg"
+            E      Eu pauso por 500ms
+
+            Quando Eu preencho <rg> no inputfield "#inputRg"
+            E      Eu pauso por 500ms
+
+            Quando Eu preencho <data de nascimento> no inputfield "#inputDataNascimento"
+           
+            E      Eu pauso por 500ms
+            Quando Eu seleciono a 1ª opção do elemento "#comboSexo"
+
+            E      Eu pauso por 500ms
+            Quando Eu preencho <email> no inputfield "#inputTagEmail > div > div > input"
+           
+            Quando Eu preencho <telefone fixo> no inputfield "#inputTagTelFixo > div > div > input"
+            E      Eu pressiono "Enter"
+            E      Eu pauso por 500ms
+            Quando Eu preencho <telefone fixo> no inputfield "#inputTagTelFixo > div > div > input"
+            E      Eu pressiono "Enter"
+            E      Eu pauso por 500ms
+            Quando Eu preencho <telefone fixo> no inputfield "#inputTagTelFixo > div > div > input"
+            E      Eu pressiono "Enter"
+            E      Eu pauso por 500ms
+            Quando Eu preencho <telefone movel> no inputfield "#inputTagTelMovel > div > div > input"
+            
+            Dado  the checkbox "#checkboxFidelidade" is not checked
+            Então  Eu clico no elemento "#form-cadastro-cliente-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.form-cliente > form > div:nth-child(6) > div > label"
+    
+            Quando Eu preencho <cep> no inputfield "#inputCep"
+            Então  Eu clico no elemento "#botaoPesquisarCep"
+            E      Eu pauso por 500ms
+            E      the element "#inputBairro" is not enabled
+            E      the element "#inputCidade" is not enabled
+            E      the element "#inputUf" is not enabled
+            Quando Eu preencho <logradouro> no inputfield "#inputSelectLogradouro > div > input"
+            E      Eu pressiono "Enter"
+            Então  Eu pressiono "ArrowDown"
+            E      Eu pressiono "Enter"
+
+            Quando Eu preencho <numero> no inputfield "#inputNumero"
+            Quando Eu preencho <complemento> no inputfield "#inputComplemento"
+            Quando Eu preencho <referencia> no inputfield "#textAreaRef"
+
+
+            Então  Eu pauso por 10000ms
+
+            Então  Eu clico no elemento "#botaoSalvarCliente"
+            Então  Eu espero que o elemento "#form-cadastro-cliente-modal > div > div > ng-transclude > div > div > div" contenha "Existem erros no formulário"
+
+
+
+        Exemplos:
+        |   nome   |   cpf  |      rg      | data de nascimento |         email          | telefone fixo | telefone movel |    cep     | logradouro  |   numero    |  complemento    |   referencia   |
+        | "rafael" | "02931188093" | "1093621058" |     "01071993"     | "rafinha047@gmail.com" | "51999630386" | "51999630386"  | "96745000" |    "bento"  |    "2141"   |   "comercio"    |    "esquina"   |

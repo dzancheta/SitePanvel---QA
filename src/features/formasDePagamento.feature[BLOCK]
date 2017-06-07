@@ -1,0 +1,36 @@
+#language: pt 
+
+Funcionalidade: Forma de Pagamento - Finaliza Pedido
+
+    Como desenvolvedor
+    Eu quero testar as iterações possiveis entre usuário e elementos da forma de entrega.
+
+    Contexto:
+        Dado   Eu faço login padrão
+
+        Então  Eu espero que a URL seja "/cesta"
+        Quando Eu preencho "para" no inputfield "#inputBuscarItem" e submeto
+        E      Eu pauso por 900ms
+        E      Eu clico no botao "#botaoAdicionarItem"
+        Então  Eu preencho "01328452026" no inputfield "#formIdentificacao > #inputCpf" e submeto
+      
+        E     Eu pauso por 1000ms
+        Então Eu clico no botao "#botaoFormasEntrega"
+        E     Eu pauso por 1000ms
+        Então Eu clico no botao "#botaoFormasPagamento"
+
+
+      Cenário: Validar com sucesso cancelamento do pedido
+        Dado  Eu clico no botao "#botaoCancelarPedido"
+        E     Eu clico no botao "#botaoAceitarCancelamentoPedido"
+        Então Eu espero que o elemento "#inputBuscarItem" esteja visível
+
+        E    Eu saio do sistema
+
+
+      Cenário: Validar sem sucesso finalização da compra sem selecionar pagamento
+        Dado  Eu clico no botao "#botaoFinalizarPedido"
+        Então Eu espero que o elemento "body > div.ng-scope > div > div > main > main > section > form > div.ng-scope.ng-isolate-scope.alert.alert-dismissible.alert-danger" contenha "Para finalizar o pedido o saldo restante deve estar zerado"
+        Dado  Eu clico no botao "#botaoCancelarPedido"
+        E     Eu clico no botao "#botaoAceitarCancelamentoPedido"
+        E     Eu saio do sistema

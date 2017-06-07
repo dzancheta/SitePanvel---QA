@@ -1,0 +1,15 @@
+/**/node_modules
+/**/errorShots
+**/*.log
+**/*.log.*
+/**/bower_components
+/**/dist
+/**/src/app/css
+/**/.bowerrc
+/**/index.html
+**/.DS_Store
+*/index.html
+.bowerrc~
+.sonar/
+.sonar-project.properties
+.phantomjsdriver.log

@@ -1,0 +1,127 @@
+#language: pt 
+
+Funcionalidade: Forma de Entrega - Verifica Elementos
+
+    Como desenvolvedor
+    Eu quero testar as iterações possiveis entre usuário e elementos da forma de entrega.
+
+    Contexto:
+        Dado   Eu abro o site "/login"
+        E      Eu tenho um fullscreen
+        Quando Eu preencho "eroque" no inputfield "#inputUsuario"
+        E      Eu preencho "teste123" no inputfield "#inputSenha"
+        Então  Eu clico no botao "#botaoEntrar"
+        E      Eu pauso por 3000ms
+
+        Quando Eu preencho "para" no inputfield "#inputBuscarItem" e submeto
+        E      Eu pauso por 900ms
+        E      Eu clico no botao "#botaoAdicionarItem"
+        Então  Eu preencho "01328452026" no inputfield "#formIdentificacao > #inputCpf" e submeto
+      
+        E     Eu pauso por 1000ms
+        Então Eu clico no botao "#botaoFormasEntrega"
+        E     Eu pauso por 1000ms
+
+
+      Cenário: Validar modal da entrega em casa
+
+        Dado   Eu clico no botao "#entregaEmCasa"
+        Então  Eu espero que o elemento "#modalEntregas" se torne visível
+        E      Eu pauso por 1000ms
+        Quando Eu clico no botao "#botaoFechar"
+        E      Eu pauso por 1000ms
+        Então  Eu clico no botao "#botaoVoltar > span"
+        E      Eu pauso por 1000ms
+        Então  Eu saio do sistema
+
+
+      Cenário: Validar opção de entrega rápida 
+        
+        Dado   Eu clico no botao "#entregaEmCasa"
+        E      Eu pauso por 2000ms
+        Então  Eu espero que o elemento "#modalEntregas" se torne visível
+        E      Eu pauso por 1000ms
+        Quando Eu clico no botao "#radioRapida"
+        E      Eu pauso por 2000ms
+        E      Eu clico no botao "#botaoConfirmar"
+        Então  Eu espero que o elemento "#total" contenha "5,52"
+        E      Eu pauso por 2000ms
+        Quando Eu clico no botao "#botaoVoltar > span"
+        E      Eu pauso por 1000ms
+        Então  Eu saio do sistema
+
+
+      Cenário: Validar opção de entrega programada
+        
+        Dado  Eu clico no botao "#entregaEmCasa"
+        Então Eu espero que o elemento "#modalEntregas" se torne visível
+        E     Eu pauso por 1000ms
+        E     Eu clico no botao "#radioProgramada"
+        E     Eu pauso por 2000ms
+          
+        Quando  Eu seleciono a 1ª opção do elemento "#comboRotas"
+
+        E     Eu clico no botao "#botaoConfirmar"
+        Então Eu espero que o elemento "#total" contenha "5,52"
+        E     Eu pauso por 2000ms
+        Então Eu clico no botao "#botaoVoltar > span"
+        E     Eu pauso por 1000ms
+        Então Eu saio do sistema
+
+      
+      Cenário: Validar cancelamento do pedido com sucesso
+
+        Dado   Eu clico no botao "#botaoCancelarPedido"
+        E      Eu pauso por 1000ms        
+        Quando Eu clico no botao "#botaoSimCancelar"
+        E      Eu pauso por 1000ms
+        Então  Eu espero que o elemento "#contadorCesta" contenha "(0)"
+        E      Eu pauso por 1000ms
+        Então  Eu saio do sistema
+
+
+      Cenário: Validar com sucesso o endereço do cliente
+
+        Dado   Eu clico no botao "#entregaEmCasa"
+        E      Eu pauso por 1000ms
+        Então  Eu espero que o elemento "#labelEndereco" contenha "AV PRAIA DE BELAS 1118 - Comercio"
+        E      Eu espero que o elemento "#labelEndereco" contenha "CEP: 90110-001"
+        E      Eu espero que o elemento "#labelEndereco" contenha "PRAIA DE BELAS"
+        E      Eu espero que o elemento "#labelEndereco" contenha "PORTO ALEGRE/RS"
+        E      Eu pauso por 1000ms
+        Quando Eu clico no botao "#botaoConfirmar"
+        E      Eu pauso por 500ms
+        Então  Eu clico no botao "#botaoVoltar > span"
+        E      Eu pauso por 1000ms
+        Então  Eu saio do sistema
+        
+
+      Cenário: Validar com sucesso a troca de endereço do cliente
+        
+        Dado   Eu clico no botao "#botaoEditarEndereco"
+        E      Eu pauso por 1000ms
+        # Clique no endereço
+        Então  Eu clico no botao "#cliente-modal > div > div > ng-transclude > ng-include:nth-child(1) > div > modal-body > div > ng-transclude > ul > li:nth-child(3) > label.area-clicavel"
+        # Clique em salvar alteração
+        E      Eu clico no botao "#cliente-modal > div > div > ng-transclude > ng-include:nth-child(1) > div > modal-header > div > ng-transclude > button"
+        E      Eu pauso por 1000ms
+        Quando Eu clico no botao "#entregaEmCasa"
+        E      Eu pauso por 2000ms
+        Então  Eu espero que o elemento "#labelEndereco" contenha "AV PADRE CACIQUE 79999 - 4º andar bloco b"
+        E      Eu espero que o elemento "#labelEndereco" contenha "CEP: 90810-240"
+        E      Eu espero que o elemento "#labelEndereco" contenha "PRAIA DE BELAS"
+        E      Eu espero que o elemento "#labelEndereco" contenha "PORTO ALEGRE/RS"
+        E      Eu pauso por 1000ms
+        Quando Eu clico no botao "#botaoConfirmar"
+        E      Eu pauso por 500ms
+        Então  Eu clico no botao "#botaoVoltar > span"
+        E      Eu pauso por 1000ms
+        Então  Eu saio do sistema
+    
+      Cenário: Validar sem sucesso ao excluir itens e tentar avançar para formas e
+        
+        Dado  Eu clico no botao "#botaoExcluir"
+        E     Eu pauso por 1000ms
+        Então Eu espero que o elemento "#botaoFormasPagamento" não esteja habilitado
+        E     Eu espero que o elemento "#total" contenha "R$0,00"
+        E     Eu pauso por 6000ms

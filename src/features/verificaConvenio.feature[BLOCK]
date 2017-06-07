@@ -1,0 +1,76 @@
+#language: pt 
+
+Funcionalidade: Convenio - Verifica autenticação de usuário
+
+    Como desenvolvedor
+    Eu quero testar se ao preencher um convênio, haverá autenticação de usuário automática.
+
+    Contexto:
+        Dado   Eu faço login padrão
+
+        Então  Eu espero que a URL seja "/cesta"
+        E      Eu clico no botao "body > div.ng-scope > div > div > main > main > section.cesta-header > div.menu-trigger"
+        E      Eu pauso por 300ms
+        E      Eu clico no botao "#botaoConvenio"
+      
+      Cenário: Validar com sucesso convenio por numero de cartão
+
+        Dado   Eu pauso por 400ms
+        Quando Eu preencho "6037230003933089" no inputfield "#inputNumeroCartao"
+        Então  Eu clico no botao "#botaoValidarConvenio"
+        E      Eu pauso por 400ms
+        Então  Eu espero que o elemento "#espacoConvenioValidado" contenha "Cartão identificado"
+        E      Eu clico no botao "#botaoFecharConvenio"
+        E      Eu pauso por 500ms
+        Então  Eu espero que o elemento "#botaoEditarCliente" contenha "SILVIO CARLOS RIBEIRO DOS SANTOS"
+
+        E      Eu clico no botao "#botaoRemoverCliente > i"           
+        E      Eu clico no botao "#linkLogout"        
+
+
+      Cenário: Validar com sucesso convenio sem numero de cartão
+
+        Dado   Eu pauso por 400ms
+        E      Eu clico no elemento "#checkboxSemCartao > div > div.check-container > label > div"
+        Dado   Eu pauso por 1000ms
+        E      Eu clico no elemento "#inputSelectNomeConvenio > div > input"
+        Quando Eu preencho "CLUBE DO APOSENTADO PANVEL" no inputfield "#inputSelectNomeConvenio > div > input"
+        E      Eu pressiono "Enter"
+        E      Eu pauso por 900ms
+        E      Eu clico no elemento "#inputSelectNomeConvenio > div > div > div > ul > li:nth-child(1)"
+        E      Eu preencho "48530" no inputfield "#inputNumeroMatricula"
+        E      Eu pressiono "Enter"
+        E      Eu pauso por 300ms
+        Então  Eu espero que o elemento "#espacoConvenioValidado" contenha "Cartão identificado"
+        E      Eu clico no botao "#botaoFecharConvenio"
+        E      Eu pauso por 500ms
+        Então  Eu espero que o elemento "#botaoEditarCliente" contenha "JAIR"
+        
+        E      Eu clico no botao "#botaoRemoverCliente > i"   
+        E      Eu clico no botao "#linkLogout"  
+
+
+      Cenário: Validar sem sucesso convenio por numero de cartão inválido
+
+        Dado   Eu pauso por 400ms
+        Quando Eu preencho "60372300039330899" no inputfield "#inputNumeroCartao"
+        Então  Eu clico no botao "#botaoValidarConvenio"
+        E      Eu pauso por 400ms
+        Então  Eu espero que o elemento "#alertaErroConvenio" contenha "Existem campos com erro ou não preenchidos"
+        E      Eu clico no botao "#botaoFecharConvenio"
+        E      Eu pauso por 500ms        
+        E      Eu clico no botao "#linkLogout"   
+
+
+      Cenário: Validar sem sucesso convenio por convênio inválido
+
+        Dado   Eu pauso por 400ms
+        Quando Eu preencho "60372300039330899" no inputfield "#inputNumeroCartao"
+        Então  Eu clico no botao "#botaoValidarConvenio"
+        E      Eu pauso por 400ms
+        Então  Eu espero que o elemento "#alertaErroConvenio" contenha "Existem campos com erro ou não preenchidos"
+        E      Eu clico no botao "#botaoFecharConvenio"
+        E      Eu pauso por 500ms
+        Então  Eu espero que o elemento "#inputCpf" se torne visível
+        E      Eu clico no botao "#linkLogout"  
+
