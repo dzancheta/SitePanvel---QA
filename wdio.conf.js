@@ -57,7 +57,7 @@ exports.config = {
         // make sure that not more than 5 instance gets started at a time.
         maxInstances: 4,
         //
-        browserName: 'phantomjs',
+        browserName: 'chrome',
         'phantomjs.binary.path': './node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs.exe'
 
     }],
@@ -84,14 +84,14 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: 'http://10.11.101.72:3000/client/dist/#',
+    baseUrl: 'https://www.panvel',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 90000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
-    connectionRetryTimeout: 90000,
+    connectionRetryTimeout: 100000,
     //
     // Default request retries count
     connectionRetryCount: 3,
@@ -164,7 +164,7 @@ exports.config = {
         tags: require('./src/tagProcessor', './framework/tagProcessor')(process.argv),
         // <string[]> (expression) only execute the features or scenarios with
         // tags matching the expression
-        timeout: 99999,     // <number> timeout for step definitions
+        timeout: 80000,     // <number> timeout for step definitions
         ignoreUndefinedDefinitions: false, // <boolean> Enable this config to
                                            // treat undefined definitions as
                                            // warnings.
@@ -247,6 +247,6 @@ exports.config = {
 
     //CONSTANTES
 
-    login: 'rgarcia',
-    senha: 'concurso2017',
+    ////login: 'rgarcia',
+    ////senha: 'concurso2017',
 };

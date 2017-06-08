@@ -7,7 +7,6 @@ Funcionalidade: Cesta - Iteração com itens
 
     Contexto:
         Dado   Eu faço login padrão
-
         Então  Eu espero que a URL seja "/cesta"
     
     
@@ -16,7 +15,7 @@ Funcionalidade: Cesta - Iteração com itens
         E      Eu pauso por 1000ms
         Quando Eu clico no botao "#botaoAdicionarItem"
         E      Eu pauso por 1000ms
-        Então  Eu espero que o elemento "#espacoDescricaoProduto > nome-produto > span" contenha "106917 - ESM RISQUE CINT PLATINO BL"
+        Então  Eu espero que o elemento "#linhaItemEncontrado" contenha "ESM RISQUE CINT PLATINO BL"
 
         Então  Eu saio do sistema
 
@@ -35,7 +34,7 @@ Funcionalidade: Cesta - Iteração com itens
         Dado   Eu preencho "ESM RISQUE CINT PLATINO BL" no inputfield "#inputBuscarItem" e submeto
         E      Eu pauso por 1000ms
         Quando Eu clico no botao "#botaoAdicionarItem"
-        Então  Eu espero que o elemento "#espacoDescricaoProduto" contenha "ESM RISQUE CINT PLATINO BL"
+        Então  Eu espero que o elemento "#linhaItemEncontrado" contenha "ESM RISQUE CINT PLATINO BL"
         
         Então  Eu saio do sistema
 
@@ -43,8 +42,8 @@ Funcionalidade: Cesta - Iteração com itens
         Dado   Eu preencho "ESM RISQUE CINT PLATINO BL" no inputfield "#inputBuscarItem" e submeto
         E      Eu pauso por 1000ms
         Quando Eu clico no botao "#botaoAdicionarItem"
-                E      Eu pauso por 1000ms
-
+        E      Eu clico no botao "#botaoFecharBusca"
+        E      Eu pauso por 600ms
         E      Eu clico no botão "#botaoIncrementar" "3" vezes
         Então  Eu espero que o inputfield "#inputQuantidade" contenha o texto "4"
 
@@ -55,7 +54,8 @@ Funcionalidade: Cesta - Iteração com itens
         Dado   Eu preencho "ESM RISQUE CINT PLATINO BL" no inputfield "#inputBuscarItem" e submeto
         E      Eu pauso por 1000ms
         Quando Eu clico no botao "#botaoAdicionarItem"
-        E      Eu pauso por 1000ms
+        E      Eu clico no botao "#botaoFecharBusca"
+        E      Eu pauso por 400ms
         E      Eu clico no botão "#botaoIncrementar" "3" vezes
         Então  Eu espero que o inputfield "#inputQuantidade" contenha o texto "4"
         E      Eu pauso por 600ms
@@ -74,10 +74,9 @@ Funcionalidade: Cesta - Iteração com itens
 
     Cenário:  Validar com sucesso a limpeza de cesta
         Dado   Eu preencho "393843" no inputfield "#inputBuscarItem" e submeto
-        E      Eu pauso por 1000ms
-
+        E      Eu pauso por 600ms
         Então  Eu espero que o elemento "#contadorCesta" não contenha o texto "Cesta(0)"
-        E      Eu pauso por 6000ms
+        E      Eu pauso por 800ms
         Quando Eu clico no botao "#botaoLimparCesta"
         Então  Eu espero que o elemento "#contadorCesta" contenha o texto "Cesta(0)"
 

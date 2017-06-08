@@ -10,25 +10,25 @@ Contexto:
         Então  Eu espero que a URL seja "/cesta"
         E      Eu preencho "rivotril" no inputfield "#inputBuscarItem"
         E      Eu pressiono "Enter"
-        E      Eu pauso por 2000ms
-        E      Eu clico no botao "#botaoAdicionarItem > span" 
         E      Eu pauso por 1000ms
+        E      Eu clico no botao "#botaoAdicionarItem > span" 
+        E      Eu pauso por 400ms
         E      Eu clico no botao "#botaoColetarReceita"
-        E      Eu pauso por 4000ms
+        E      Eu pauso por 800ms
      
 
 Cenário: Validar a mensagem quando o campo “nome” não for preenchido. 
          
         Dado   Eu clico no elemento "#buscaAvancadaMedicoColeta"
-        E      Eu pauso por 1000ms        
+        E      Eu pauso por 400ms        
         E      Eu espero que o elemento "#buscaAvancadaMedicoColeta" se torne visível
         E      Eu espero que o elemento "#botaoBuscar" não esteja habilitado
         E      Eu clico no elemento "#fecharModalPesquisaMedico"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         E      Eu espero que o elemento "#fecharModalColetaReceita" se torne visível
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         E      Eu clico no elemento "#fecharModalColetaReceita"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         E      Eu espero que o elemento "#botaoMostrarMenu" se torne visível
 
         Então  Eu saio do sistema 
@@ -63,21 +63,21 @@ Esquema do Cenario: Validar sem sucesso busca avançada medico quando "Nome" for
         
         
         Dado   Eu clico no elemento "#buscaAvancadaMedicoColeta"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         E      Eu espero que o elemento "#inputNome" se torne visível
         E      Eu clico no elemento "#inputNome"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         Então  Eu preencho <NOME> no inputfield "#medico-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.pesquisar-medico.ng-scope > form > div > div.col-md-6 > div > #inputNome" 
         E      Eu espero que o elemento "#botaoBuscar" se torne visível
         E      Eu clico no botao "#botaoBuscar"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         E      Eu espero que o elemento "#medico-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.lista-medico.ng-scope > table > tbody > tr" se torne visível
         Então  Eu espero que o elemento "#medico-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.lista-medico.ng-scope > table > tbody > tr" contenha "Não foi encontrado nenhum médico."
         E      Eu clico no elemento "#fecharModalPesquisaMedico"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         E      Eu espero que o elemento "#fecharModalColetaReceita" se torne visível
         E      Eu clico no elemento "#fecharModalColetaReceita"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         E      Eu espero que o elemento "#botaoMostrarMenu" se torne visível
 
         Então  Eu saio do sistema 
@@ -92,19 +92,19 @@ Esquema do Cenario: Validar sem sucesso busca avançada medico quando o campo �
         
         
         Dado   Eu clico no elemento "#buscaAvancadaMedicoColeta"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         Então  Eu espero que o elemento "#inputNome" se torne visível
         Então  Eu preencho <NOME> no inputfield "#medico-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.pesquisar-medico.ng-scope > form > div > div.col-md-6 > div > #inputNome" 
         E      Eu espero que o elemento "#botaoBuscar" se torne visível
         E      Eu clico no botao "#botaoBuscar"
-        E      Eu pauso por 10000ms
+        E      Eu pauso por 800ms
         E      Eu espero que o elemento "#medico-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.lista-medico.ng-scope > table > tbody > tr" se torne visível
         Então  Eu espero que o elemento "#medico-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.lista-medico.ng-scope > table > tbody > tr" contenha "Não foi encontrado nenhum médico."
         E      Eu clico no elemento "#fecharModalPesquisaMedico"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 800ms
         E      Eu espero que o elemento "#fecharModalColetaReceita" se torne visível
         E      Eu clico no elemento "#fecharModalColetaReceita"
-        E      Eu pauso por 1000ms
+        E      Eu pauso por 400ms
         E      Eu espero que o elemento "#botaoMostrarMenu" se torne visível
 
         Então  Eu saio do sistema 

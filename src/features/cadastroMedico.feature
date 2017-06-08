@@ -17,9 +17,9 @@ Esquema do Cenario: Validar com sucesso cadastro medico quando for preenchido co
         E      Eu preencho "paracetamol" no inputfield "#inputBuscarItem"
         E      Eu pressiono "Enter"
         E      Eu pauso por 600ms
-        E      Eu clico no botao "#linhaItemEncontrado > div.descricao > div.produto-descontos > a > i"
+        E      Eu clico no botao "#capturarReceitaBusca"
         E      Eu pauso por 1000ms
-        E      Eu clico no botao "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > a.cadastrar-medico"
+        E      Eu clico no botao "#cadastrarMedicoCaptura"
         E      Eu pauso por 1000ms
         E      Eu preencho <RIGISTRO> no inputfield "#inputRegistro"
         E      Eu pauso por 1000ms
@@ -42,13 +42,13 @@ Esquema do Cenario: Validar sem sucesso cadastro medico quando o nome do médico
         Dado      Eu preencho "paracetamol" no inputfield "#inputBuscarItem"
         E      Eu pressiono "Enter"
         E      Eu pauso por 600ms
-        E      Eu clico no botao "#linhaItemEncontrado > div.descricao > div.produto-descontos > a > i"
+        E      Eu clico no botao "#capturarReceitaBusca"
         E      Eu pauso por 1000ms
-        E      Eu clico no botao "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > a.cadastrar-medico"
+        E      Eu clico no botao "#cadastrarMedicoCaptura"
         E      Eu pauso por 1000ms
         E      Eu preencho <RIGISTRO> no inputfield "#inputRegistro"
         E      Eu pauso por 1000ms
-        E      Eu clico no botao "#cadastrar-medico-modal > div > div > ng-transclude > div > modal-header > div > ng-transclude > button"
+        E      Eu clico no botao "#adicionarNovoMedico"
         E      Eu pauso por 1000ms
         E      Eu clico no botao "#fecharModalCadastroMedico"
         E      Eu pauso por 1000ms
@@ -68,14 +68,13 @@ Esquema do Cenario: Validar sem sucesso cadastro medico quando o registro do mé
         Dado      Eu preencho "paracetamol" no inputfield "#inputBuscarItem"
         E      Eu pressiono "Enter"
         E      Eu pauso por 600ms
-        E      Eu clico no botao "#linhaItemEncontrado > div.descricao > div.produto-descontos > a > i"
+        E      Eu clico no botao "#capturarReceitaBusca"
         E      Eu pauso por 1000ms
-        E      Eu clico no botao "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > a.cadastrar-medico"
+        E      Eu clico no botao "#cadastrarMedicoCaptura"
         E      Eu pauso por 1000ms
-        E      Eu clico no botao "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > a.busca-avancada-medico"
         Quando Eu preencho <NOME> no inputfield "#cadastrar-medico-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > form > div > div > div:nth-child(1) > #inputNome"
         E      Eu pauso por 1000ms
-        E      Eu clico no botao "#cadastrar-medico-modal > div > div > ng-transclude > div > modal-header > div > ng-transclude > button"
+        E      Eu clico no botao "#adicionarNovoMedico"
         E      Eu pauso por 1000ms
         E      Eu clico no botao "#fecharModalCadastroMedico"
         E      Eu pauso por 1000ms
@@ -95,13 +94,15 @@ Esquema do Cenario: Validar com sucesso acesso a modal cadastro medico quando fo
         Dado      Eu preencho "paracetamol" no inputfield "#inputBuscarItem"
         E      Eu pressiono "Enter"
         E      Eu pauso por 600ms
-        E      Eu clico no botao "#linhaItemEncontrado > div.descricao > div.produto-descontos > a > i"
+        E      Eu clico no botao "#capturarReceitaBusca"
         E      Eu pauso por 1000ms
-        E      Eu clico no botao "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > a.cadastrar-medico"
+        E      Eu clico no botao "#buscaAvancadaMedicoCaptura"
+        E      Eu pauso por 1000ms
+        E      Eu clico no botao "#linkCadastrarMedico"
         E      Eu pauso por 1000ms
         Quando Eu preencho <NOME> no inputfield "#cadastrar-medico-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > form > div > div > div:nth-child(1) > #inputNome"
         E      Eu pauso por 1000ms
-        E      Eu clico no botao "#cadastrar-medico-modal > div > div > ng-transclude > div > modal-header > div > ng-transclude > button"
+        E      Eu clico no botao "#adicionarNovoMedico"
         E      Eu pauso por 1000ms
         E      Eu clico no botao "#fecharModalCadastroMedico"
         E      Eu pauso por 1000ms
@@ -119,14 +120,12 @@ Esquema do Cenario: Validar com sucesso acesso a modal cadastro medico quando fo
 
 Cenário: Validar com sucesso acesso a modal cadastro medico quando for acessado pelo modal “Coletar receita médica”.
 
-        Dado   Eu preencho "rivotril" no inputfield "#inputBuscarItem" 
+        Dado   Eu preencho "99678" no inputfield "#inputBuscarItem" 
         E      Eu pressiono "Enter"
-        E      Eu pauso por 600ms
-        E      Eu clico no botao "#botaoAdicionarItem > span" 
         E      Eu pauso por 1000ms
         E      Eu clico no botao "#botaoColetarReceita"
         E      Eu pauso por 1000ms
-        E      Eu clico no botao "#receita-modal > div > div > ng-transclude > div > ng-include:nth-child(2) > div > modal-body > div > ng-transclude > div.informacoes-medicamento.ng-scope > a.cadastrar-medico"
+        E      Eu clico no botao "#cadastrarMedicoColeta"
         E      Eu pauso por 1000ms
         E      Eu clico no botao "#fecharModalCadastroMedico"
         E      Eu pauso por 1000ms
@@ -143,10 +142,8 @@ Cenário: Validar com sucesso acesso a modal cadastro medico quando for acessado
 
 Cenário: Validar com sucesso acesso a modal cadastro medico quando for acessado pelo busca avançada na modal “Coletar receita médica”.
 
-        Dado   Eu preencho "rivotril" no inputfield "#inputBuscarItem" 
+        Dado   Eu preencho "99678" no inputfield "#inputBuscarItem" 
         E      Eu pressiono "Enter"
-        E      Eu pauso por 600ms
-        E      Eu clico no botao "#botaoAdicionarItem > span" 
         E      Eu pauso por 1000ms
         E      Eu clico no botao "#botaoColetarReceita"
         E      Eu pauso por 1000ms  

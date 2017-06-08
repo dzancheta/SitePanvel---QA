@@ -8,11 +8,11 @@ Funcionalidade: Cadastro de Cliente
         Dado   Eu abro o site "/login"
         E      Eu tenho um fullscreen
 
-        Então  Eu pauso por 2000ms
+        Então  Eu pauso por 1000ms
         Quando Eu preencho "eroque" no inputfield "#inputUsuario"
         Quando Eu preencho "teste123" no inputfield "#inputSenha"
         Quando Eu clico no botao "#botaoEntrar"
-        E      Eu pauso por 4000ms
+        E      Eu pauso por 200ms
         Então  Eu espero que a URL seja "/cesta"
 
 

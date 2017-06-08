@@ -1,0 +1,29 @@
+FROM node:boron
+
+# Installing required packages
+RUN apt-get update && \
+    apt-get install -y ruby-full build-essential bison openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libxml2-dev autoconf libc6-dev ncurses-dev automake libtool alien dpkg-dev debhelper build-essential software-properties-common  openjdk-7-jre
+
+# Define commonly used JAVA_HOME variable
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+
+# Create app directory
+RUN mkdir -p /usr/src/
+
+# Install npm dependencies
+COPY package.json /usr/src/
+RUN cd /usr/src && npm cache clean && npm install --silent --progress=false && npm install selenium-standalone -g
+
+COPY . /usr/src
+
+# Install selenium-standalone
+RUN cd /usr/src && selenium-standalone install
+
+# Teste versões pacotes
+RUN npm -v node && npm -v selenium-standalone && npm -v webdriverio
+
+# Run selenium-standalone
+RUN cd /usr/src && nohup selenium-standalone start &
+
+# Run tests 
+RUN cd /usr/src && npm run test:features

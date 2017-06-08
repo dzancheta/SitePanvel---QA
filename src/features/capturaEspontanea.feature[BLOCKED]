@@ -19,11 +19,11 @@ Contexto:
 
 Esquema do Cenario: Validar com sucesso busca avançada medico quando for preenchido corretamente os campos necessários. 
         
-        Dado   Eu preencho <REGISTRO> no inputfield "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > form > div:nth-child(1) > div.col-md-6 > div > input   " 
+        Dado   Eu preencho <REGISTRO> no inputfield "#capturarModalRegistroMedico" 
         E      Eu pauso por 200ms
-        E      Eu clico no botao "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > form > div:nth-child(1) > div.col-md-6 > div > span > button"
+        E      Eu clico no botao "#capturarModalBuscaMedico"
         E      Eu pauso por 1000ms
-        E      Eu clico no elemento "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > button > span"
+        E      Eu clico no elemento "#capturarModalIncluirReceita > span"
         E      Eu pauso por 200ms
       
         Então  Eu saio do sistema 
@@ -44,7 +44,7 @@ Esquema do Cenario: Validar com sucesso busca avançada medico quando for preenc
         E      Eu pauso por 1000ms
         E      Eu clico no elemento "#medico-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.lista-medico.ng-scope > table > tbody > tr:nth-child(1)"
         E      Eu pauso por 1000ms
-        E      Eu clico no elemento "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > button > span"
+        E      Eu clico no elemento "#capturarModalIncluirReceita > span"
         E      Eu pauso por 200ms
       
         Então  Eu saio do sistema 
@@ -56,9 +56,9 @@ Esquema do Cenario: Validar com sucesso busca avançada medico quando for preenc
 
 Cenário: Validar sem sucesso captura espontânea de receita quando não for preenchido campos necessários.
 
-        Dado   Eu clico no botao "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > form > div:nth-child(1) > div.col-md-6 > div > span > button"
+        Dado   Eu clico no botao "#capturarModalBuscaMedico"
         E      Eu pauso por 1000ms
-        E      Eu espero que o elemento "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.ng-scope.ng-isolate-scope.alert.alert-dismissible.alert-danger-modal > div" contenha "Não foi encontrado nenhum profissional!"
+        E      Eu espero que o elemento "#mensagemErroCaptura > div" contenha "Não foi encontrado nenhum profissional!"
         E      Eu pauso por 200ms
         E      Eu clico no elemento "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.ng-scope.ng-isolate-scope.alert.alert-dismissible.alert-danger-modal > button > span:nth-child(1)"
         E      Eu clico no elemento "#fecharModalCapturaReceita"
@@ -69,11 +69,11 @@ Cenário: Validar sem sucesso captura espontânea de receita quando não for pre
 
 Esquema do Cenario: Validar sem sucesso captura espontânea de receita quando for preenchido incorretamente o campo “Registro”. 
 
-        Dado   Eu preencho <REGISTRO> no inputfield "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > form > div:nth-child(1) > div.col-md-6 > div > input   " 
+        Dado   Eu preencho <REGISTRO> no inputfield "#capturarModalRegistroMedico" 
         E      Eu pauso por 200ms
-        E      Eu clico no botao "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div > div.informacoes-medicamento.ng-scope > form > div:nth-child(1) > div.col-md-6 > div > span > button"
+        E      Eu clico no botao "#capturarModalBuscaMedico"
         E      Eu pauso por 100ms
-        E      Eu espero que o elemento "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.ng-scope.ng-isolate-scope.alert.alert-dismissible.alert-danger-modal > div" contenha "Não foi encontrado nenhum profissional!"
+        E      Eu espero que o elemento "#mensagemErroCaptura > div" contenha "Não foi encontrado nenhum profissional!"
         E      Eu clico no elemento "#capturar-receita-modal > div > div > ng-transclude > div > modal-body > div > ng-transclude > div.ng-scope.ng-isolate-scope.alert.alert-dismissible.alert-danger-modal > button > span:nth-child(1)"
         E      Eu pauso por 200ms
         E      Eu clico no elemento "#fecharModalCapturaReceita"
