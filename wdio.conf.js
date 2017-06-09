@@ -57,7 +57,7 @@ exports.config = {
         // make sure that not more than 5 instance gets started at a time.
         maxInstances: 4,
         //
-        browserName: 'chrome',
+        browserName: 'phantomjs',
         'phantomjs.binary.path': './node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs.exe'
 
     }],
