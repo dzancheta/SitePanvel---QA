@@ -45,7 +45,7 @@ exports.config = {
     // spawned. The property handles how many capabilities from the same test
     // should run tests.
     //
-    maxInstances: 4,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check
     // out the Sauce Labs platform configurator - a great tool to configure your
@@ -55,7 +55,7 @@ exports.config = {
         // maxInstances can get overwritten per capability. So if you have an
         // in-house Selenium grid with only 5 firefox instance available you can
         // make sure that not more than 5 instance gets started at a time.
-        maxInstances: 4,
+        maxInstances: 1,
         //
         browserName: 'phantomjs',
         'phantomjs.binary.path': './node_modules/phantomjs-prebuilt/lib/phantom/bin/phantomjs.exe'
@@ -84,14 +84,14 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: 'https://www.panvel',
+    baseUrl: 'http://10.11.101.72:3000/client/dist/#',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 90000,
+    waitforTimeout: 10000,
     //
     // Default timeout in milliseconds for request
     // if Selenium Grid doesn't send response
-    connectionRetryTimeout: 100000,
+    connectionRetryTimeout: 90000,
     //
     // Default request retries count
     connectionRetryCount: 3,
@@ -131,7 +131,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
-    reporters: ['spec'],
+    reporters: ['dot'],
     //
     // If you are using Cucumber you need to specify the location of your step
     // definitions.
@@ -164,7 +164,7 @@ exports.config = {
         tags: require('./src/tagProcessor', './framework/tagProcessor')(process.argv),
         // <string[]> (expression) only execute the features or scenarios with
         // tags matching the expression
-        timeout: 80000,     // <number> timeout for step definitions
+        timeout: 20000,     // <number> timeout for step definitions
         ignoreUndefinedDefinitions: false, // <boolean> Enable this config to
                                            // treat undefined definitions as
                                            // warnings.
@@ -247,6 +247,6 @@ exports.config = {
 
     //CONSTANTES
 
-    ////login: 'rgarcia',
-    ////senha: 'concurso2017',
+    login: 'rgarcia',
+    senha: 'concurso2017',
 };
