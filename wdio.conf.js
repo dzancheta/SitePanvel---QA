@@ -84,7 +84,7 @@ exports.config = {
     //
     // Set a base URL in order to shorten url command calls. If your url
     // parameter starts with "/", then the base url gets prepended.
-    baseUrl: 'http://10.11.101.72:3000/client/dist/#',
+    baseUrl: 'http://www.panvel',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
